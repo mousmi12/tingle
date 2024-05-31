@@ -6,18 +6,19 @@
 </head>
 
 <body>
-@include('user.navigation')
+  @include('user.navigation')
   <section class="container">
-      <div>
-        <img
+    <div>
+      <img
         src="{{asset('assets/userpage/Image/category.png')}}"
-        alt=""
-        srcset=""
+        alt="Category Image"
         style="width: 300px;"
-
       />
+    </div>
+    <div class="row align-items-center">
+      <div class="col-12 mb-3">
+        <input type="text" class="form-control" id="searchInput" placeholder="Search products...">
       </div>
-      <div class="row align-items-center">
       @foreach($products as $product)
         <div class="col-12 col-sm-4 py-3 d-flex justify-content-center">
           <div style="width: 80%">
@@ -25,14 +26,12 @@
               <img
                 src="{{ asset($product->image) }}"
                 class="categoryImage rounded-5"
-                alt=""
-                srcset=""
-
+                alt="{{ $product->name }}"
               />
             </div>
             <div class="d-flex justify-content-between">
               <div>
-                <h6 class="fw-bold">{{ $product->name }}</h6>
+                <h6 class="fw-bold ">{{ $product->name }}</h6>
                 <h6>Rs: {{ $product->price }}</h6>
               </div>
               <div class="d-flex justify-content-center align-items-center">
@@ -43,15 +42,12 @@
               </div>
             </div>
           </div>
-        </div> 
-        @endforeach
-
-      </div>
-      
-    </section>
-
+        </div>
+      @endforeach
+    </div>
+  </section>
 
   @include('user.footer')
- 
 </body>
-</head>
+
+</html>

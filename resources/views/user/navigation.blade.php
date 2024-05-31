@@ -26,11 +26,11 @@
                   <a
                     class="nav-link active fw-bold"
                     aria-current="page"
-                    href="#"
+                    href="{{route('user.dashboard')}}"
                     >HOME</a
                   >
                   <a class="nav-link fw-bold" href="{{route('user.about')}}">ABOUT</a>
-                  <a class="nav-link fw-bold" href="{{route('user.index')}}">PRODUT</a>
+                  <a class="nav-link fw-bold" href="{{route('user.userindex')}}">PRODUCT</a>
                   <a class="nav-link fw-bold" href="#">CONTACT</a>
                 </div>
               </div>

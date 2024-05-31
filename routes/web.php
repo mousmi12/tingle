@@ -74,7 +74,7 @@ Route::get('logout', [LoginController::class, 'logout'])->name('admin.logout');
 //User Panel
 Route::get('/',[CategoryController::class,'dashboard'])->name('user.dashboard');
 Route::get('/user/products/{catid}',[ProductController::class,'userproduct'])->name('user.products');
-Route::get('/user/products',[ProductController::class,'index'])->name('user.index');
+Route::get('/user/products',[ProductController::class,'userindex'])->name('user.userindex');
 // Route::get('/user/product', function () {
 //     return view('user.products');
 // });

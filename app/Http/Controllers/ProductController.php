@@ -14,6 +14,12 @@ class ProductController extends Controller
         return view('admin.product.index',['products'=> $products]);
        
     }
+    public function userindex()
+    {
+        $products = Product::where('status', 'Active')->get();
+        return view('user.products',['products'=> $products]);
+       
+    }
     public function create()
     {
         $category=Category::all();
