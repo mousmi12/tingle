@@ -16,9 +16,21 @@
       />
     </div>
     <div class="row align-items-center">
-      <div class="col-12 mb-3">
-        <input type="text" class="form-control" id="searchInput" placeholder="Search products...">
-      </div>
+    <div class="row mb-4">
+    <div class="col-12 d-flex justify-content-center">
+      <form action="{{ route('user.products.search') }}" method="GET" class="d-flex" style="width: 80%">
+        <input
+          type="text"
+          name="query"
+          class="form-control"
+          placeholder="Search for products..."
+          aria-label="Search"
+          value="{{ request()->input('query') }}"
+        />
+        <button type="submit" class="btn btn-primary ml-2">Search</button>
+      </form>
+    </div>
+  </div>
       @foreach($products as $product)
         <div class="col-12 col-sm-4 py-3 d-flex justify-content-center">
           <div style="width: 80%">
