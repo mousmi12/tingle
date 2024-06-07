@@ -23,15 +23,10 @@
               </button>
               <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav ms-auto">
-                  <a
-                    class="nav-link active fw-bold"
-                    aria-current="page"
-                    href="{{route('user.dashboard')}}"
-                    >HOME</a
-                  >
-                  <a class="nav-link fw-bold" href="{{route('user.about')}}">ABOUT</a>
+                  <a class="nav-link active fw-bold" aria-current="page" href="{{route('user.dashboard')}}">HOME</a>                 
                   <a class="nav-link fw-bold" href="{{route('user.userindex')}}">PRODUCT</a>
-                  <a class="nav-link fw-bold" href="#">CONTACT</a>
+                  <a class="nav-link fw-bold" href="{{route('user.about')}}">ABOUT US</a>
+                  <a class="nav-link fw-bold" href="#">CONTACT US</a>
                 </div>
               </div>
             </div>

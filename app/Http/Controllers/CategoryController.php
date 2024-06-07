@@ -51,8 +51,8 @@ class CategoryController extends Controller
     }
     public function dashboard()
     {
-        $categories = Category::all();
-        return view('user.dashboard',['categories'=> $categories]);
+       $categories = Category::all();
+       return view('user.dashboard',['categories'=> $categories]);
     }
     public function views($id){
         $category=Category::find($id);

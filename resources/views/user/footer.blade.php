@@ -1,5 +1,5 @@
    <!-- Footer section -->
-   <footer class="" style="height: 30vh; background-color: rgb(187, 69, 22)">
+   <footer class="" style="height: 30vh; background-color: #5a3b36">
       <div class="col-1">
         <div><h1 class="text-white fontStyle">TINGLE</h1></div>
       </div>

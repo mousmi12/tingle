@@ -9,8 +9,8 @@
     @include('user.slider')
     <!-- layer section -->
     <section
-      class="my-5"
-      style="height: 15vh; background: palevioletred"
+      class="my-5 bgcolorCom"
+      style="height: 15vh;"
     ></section>
 
     <!--Category section  -->
