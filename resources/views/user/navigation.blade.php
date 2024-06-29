@@ -26,7 +26,7 @@
                   <a class="nav-link active fw-bold" aria-current="page" href="{{route('user.dashboard')}}">HOME</a>                 
                   <a class="nav-link fw-bold" href="{{route('user.userindex')}}">PRODUCT</a>
                   <a class="nav-link fw-bold" href="{{route('user.about')}}">ABOUT US</a>
-                  <a class="nav-link fw-bold" href="#">CONTACT US</a>
+                  <a class="nav-link fw-bold" href="{{route('user.contact')}}">CONTACT US</a>
                 </div>
               </div>
             </div>

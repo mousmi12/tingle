@@ -6,15 +6,15 @@
   width: 100%;
   height: 70vh;
   object-fit: cover;
-  object-position:center;
+  object-position: center;
 }
 
 .categoryImageThr {
-    width: 100%;
-    height: 70vh;
-    object-fit: cover;
-    object-position:75% 50%;
-  }
+  width: 100%;
+  height: 70vh;
+  object-fit: cover;
+  object-position: 75% 50%;
+}
 
 .sliderImage {
   width: 100%;
@@ -27,15 +27,44 @@
     url("../font/Rough-Anthem-Italic.ttf") format("truetype");
 }
 
-.fontStyle{
-    font-family: 'ItalicFont';
-    font-size: 40px;
+.fontStyle {
+  font-family: 'ItalicFont';
+  font-size: 40px;
 }
-.fontStyleabout{
+
+.fontStyleabout {
   font-family: 'ItalicFont';
   font-size: 20px;
 }
 
-.bgcolorCom{
+.bgcolorCom {
   background-color: #f1dcd7;
+}
+
+
+.custom-input {
+  border: 2px solid #5a3b36;
+  border-radius: 15px;
+  padding: 10px;
+  margin-bottom: 15px;
+  /* Adds space between the textboxes */
+  width: 100%;
+  background-color: #f9f9f9;
+  /* Light background color for the input boxes */
+}
+
+.submit-button {
+  background-color: #5a3b36;
+  color: white;
+  border: none;
+  border-radius: 15px;
+  padding: 10px 20px;
+  cursor: pointer;
+  width: 100%;
+  /* Full width button */
+}
+
+.submit-button:hover {
+  background-color: darkbrown;
+  /* Slightly darker color on hover */
 }

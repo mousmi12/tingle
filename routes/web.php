@@ -82,10 +82,22 @@ Route::get('/user/product/search',[ProductController::class,'search'])->name('us
 //Order
 Route::post('/user/product/order',[OrderHistoryController::class,'store'])->name('user.order.store');
 
+Route::get('/user/order',function () {
+    return view('user.order');
+})->name('user.order');
+
+//Policy
+Route::get('/user/policy',function () {
+    return view('user.policy');
+})->name('user.policy');
+
 //About
 Route::get('/user/about', function () {
     return view('user.about');
 })->name('user.about');
 
-
+//Contact Us
+Route::get('/user/contact', function () {
+    return view('user.contact');
+})->name('user.contact');
 
