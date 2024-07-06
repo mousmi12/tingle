@@ -48,53 +48,53 @@ class OrderHistoryController extends Controller
         return redirect()->route('user.dashboard')->with('success', 'Ordered!!');
     }
     public function index(Request $request)
-{
-    $sort_by = $request->get('sort_by', 'status'); // default sort by status
-    $sort_order = $request->get('sort_order', 'asc'); // default sort order
-    $search = $request->get('search', ''); // search query
+    {
+        $sort_by = $request->get('sort_by', 'status'); // default sort by status
+        $sort_order = $request->get('sort_order', 'asc'); // default sort order
+        $search = $request->get('search', ''); // search query
 
-    // Define the order of statuses for custom sorting
-    $statusOrder = [
-        'Pending',
-        'Progress',
-        'Shipped',
-        'Delivered',
-        'Cancelled',
-        'Completed'
-    ];
+        // Define the order of statuses for custom sorting
+        $statusOrder = [
+            'Pending',
+            'Progress',
+            'Shipped',
+            'Delivered',
+            'Cancelled',
+            'Completed'
+        ];
 
-    $ordersQuery = OrderHistory::select('orderhistory.*', 'product.name as pname', 'product.pcode as pcode')
-        ->join('product', 'orderhistory.pid', '=', 'product.id');
+        $ordersQuery = OrderHistory::select('orderhistory.*', 'product.name as pname', 'product.pcode as pcode')
+            ->join('product', 'orderhistory.pid', '=', 'product.id');
 
-    if ($search) {
-        $ordersQuery->where(function($query) use ($search) {
-            $query->where('orderhistory.customername', 'like', "%{$search}%")
-                  ->orWhere('orderhistory.mobile', 'like', "%{$search}%")
-                  ->orWhere('orderhistory.id', 'like', "%{$search}%")
-                  ->orWhere('orderhistory.status', 'like', "%{$search}%")
-                  ->orWhere('product.name', 'like', "%{$search}%")
-                  ->orWhere('product.pcode', 'like', "%{$search}%");
-        });
+        if ($search) {
+            $ordersQuery->where(function ($query) use ($search) {
+                $query->where('orderhistory.customername', 'like', "%{$search}%")
+                    ->orWhere('orderhistory.mobile', 'like', "%{$search}%")
+                    ->orWhere('orderhistory.id', 'like', "%{$search}%")
+                    ->orWhere('orderhistory.status', 'like', "%{$search}%")
+                    ->orWhere('product.name', 'like', "%{$search}%")
+                    ->orWhere('product.pcode', 'like', "%{$search}%");
+            });
+        }
+
+        if ($sort_by == 'status') {
+            $statusOrderString = implode("','", $statusOrder);
+            $ordersQuery->orderByRaw("FIELD(orderhistory.status, '{$statusOrderString}') {$sort_order}");
+        } else {
+            $ordersQuery->orderBy($sort_by, $sort_order);
+        }
+
+        $orders = $ordersQuery->get();
+
+        return view('admin.order.index', [
+            'orders' => $orders,
+            'sort_by' => $sort_by,
+            'sort_order' => $sort_order,
+            'search' => $search
+        ]);
     }
 
-    if ($sort_by == 'status') {
-        $statusOrderString = implode("','", $statusOrder);
-        $ordersQuery->orderByRaw("FIELD(orderhistory.status, '{$statusOrderString}') {$sort_order}");
-    } else {
-        $ordersQuery->orderBy($sort_by, $sort_order);
-    }
 
-    $orders = $ordersQuery->get();
-
-    return view('admin.order.index', [
-        'orders' => $orders,
-        'sort_by' => $sort_by,
-        'sort_order' => $sort_order,
-        'search' => $search
-    ]);
-}
-
-    
     public function updateStatus(Request $request)
     {
         $order = OrderHistory::find($request->order_id);
@@ -106,5 +106,22 @@ class OrderHistoryController extends Controller
         }
 
         return response()->json(['error' => 'Order not found'], 404);
+    }
+    public function userorder(Request $request)
+    {
+        $mobile = $request->input('mobile');
+        $orders = DB::table('orderhistory as o')
+        ->join('product as p', 'p.id', '=', 'o.pid')
+        ->select('o.*', 'p.name as pname')
+        ->where('o.mobile', '=',  $mobile)
+        ->get();
+        
+        return view('user.order', compact('orders'));
+    }
+
+    public function userpage()
+    {
+        // Logic to fetch data for rendering the order page
+        return view('user.order');
     }
 }

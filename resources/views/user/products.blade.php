@@ -57,10 +57,10 @@
       <div class="row mb-4">
         <div class="col-12 d-flex justify-content-center">
           <form action="{{ route('user.products.search') }}" method="GET" class="d-flex" style="width: 80%">
-            <input type="text" name="query" class="form-control" placeholder="Search for products..." aria-label="Search" value="{{ request()->input('query') }}" />
+            <input type="text" name="query" class="form-control" style="height: 35px" placeholder="Search for products..." aria-label="Search" value="{{ request()->input('query') }}" />
             <div class="search-btn-container">
-              <button type="submit" class="btn btn-search">
-                <i class="bi bi-search"></i>
+              <button type="submit" class="btn btn-search" style="height: 35px">
+                <i class="bi bi-search "></i>
               </button>
             </div>
           </form>

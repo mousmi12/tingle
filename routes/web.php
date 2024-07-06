@@ -8,6 +8,7 @@ use App\Http\Controllers\OrderController;
 use App\Http\Controllers\OrderHistoryController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserProfileController;
+use App\Models\OrderHistory;
 
 /*
 |--------------------------------------------------------------------------
@@ -82,9 +83,11 @@ Route::get('/user/product/search',[ProductController::class,'search'])->name('us
 //Order
 Route::post('/user/product/order',[OrderHistoryController::class,'store'])->name('user.order.store');
 
-Route::get('/user/order',function () {
-    return view('user.order');
-})->name('user.order');
+// Route::get('/user/order',function () {
+//     return view('user.order');
+// })->name('user.order');
+Route::get('/user/order', [OrderHistoryController::class, 'userpage'])->name('user.order');
+Route::get('/user/order/search', [OrderHistoryController::class, 'userorder'])->name('user.search');
 
 //Policy
 Route::get('/user/policy',function () {
