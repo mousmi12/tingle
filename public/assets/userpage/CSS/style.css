@@ -25,8 +25,19 @@
   font-family: "ItalicFont";
   src: url("../font/Rough-Anthem-Italic.ttf") format("truetype"),
     url("../font/Rough-Anthem-Italic.ttf") format("truetype");
+   
+  
 }
-
+@font-face {
+  font-family:"Comic" ;
+  src: url("../font/Ldfcomicsanslight-6dZo.ttf")format("truetype"),
+  url("../font/Ldfcomicsanslight-6dZo.ttf")format("truetype");
+}
+@font-face {
+  font-family:"Happy";
+  src: url("../font/Happy\ Lucky\ Free.ttf")format("truetype"),
+  url("../font/Happy\ Lucky\ Free.ttf")format("truetype");
+}
 .fontStyle {
   font-family: 'ItalicFont';
   font-size: 40px;
@@ -67,4 +78,69 @@
 .submit-button:hover {
   background-color: darkbrown;
   /* Slightly darker color on hover */
+}
+/* * {
+  margin: 0;
+  padding: 0;
+  color: white;
+} */
+
+.footerbgImage {
+  background: url("../Image/footerimage.jpeg");
+  width: 100%;
+  height: 50vh;
+  object-fit: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.imagediv {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+.fontStyleColorsFootre {
+  color: white;
+  font-family: Comic;
+  font-size: 20px;
+  width: 50%;
+  padding-left: 20px;
+}
+
+.LinkDiv {
+  width: 50%; 
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  flex-direction: column;
+  font-family:Happy;
+}
+
+.uldesign {
+  list-style-type: none;
+  color: white;
+}
+
+.adesign {
+  text-decoration: none;
+  color: white;
+  font-size: 20px;
+  width: 200px;
+}
+
+.endfooterdiv {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.icon_div {
+  width: 20%;
+  display: flex;
+  justify-content: space-between;
+  
 }
