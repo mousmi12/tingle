@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\FacebookController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\OrderHistoryController;
@@ -26,7 +27,7 @@ use App\Models\OrderHistory;
 //});
 //Login
 
-
+Route::get('/user/fbpost', [FacebookController::class, 'getPosts'])->name('user.fbpost');
 Route::group(['middleware' => 'prevent-back-history'],function(){
     Route::group(['middleware' => 'auth'],function() {
 
